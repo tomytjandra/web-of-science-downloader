@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
+from webdriver_manager.chrome import ChromeDriverManager
 import math
 import time
 
@@ -50,7 +51,7 @@ def main():
         options = Options()
         # options.add_argument('--headless')
         options.add_argument('--disable-gpu')
-        driver = webdriver.Chrome(options=options)
+        driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
         driver.maximize_window()
 
         try:
